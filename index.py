@@ -62,5 +62,9 @@ def messages():
 def favicon():
 	return send_from_directory(os.path.join(app.root_path, 'static'), 'img/favicon.ico')
 
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+
 if __name__ == '__main__':
 	app.run() 

@@ -4,7 +4,8 @@ angular.module('chatApp')
 .controller('chatController', ['$scope', 'security', '$state', '$http', 'PubNub', '$rootScope', '$timeout', function($scope, security, $state, $http, PubNub, $rootScope, $timeout){
 	PubNub.init({
   		publish_key:'pub-c-5c8931d3-4638-4479-a216-2bb9aa6e7a18',
-  		subscribe_key:'sub-c-461707f2-515c-11e5-81b5-02ee2ddab7fe'
+  		subscribe_key:'sub-c-461707f2-515c-11e5-81b5-02ee2ddab7fe',
+      ssl : (('https:' == document.location.protocol) ? true : false)
 	});
 
 	$scope.messages = [];
