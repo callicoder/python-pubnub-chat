@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="chatApp">
+  <head>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link rel="stylesheet" type="text/css" href="static/lib/materialize/dist/css/materialize.min.css">
+      <link rel="stylesheet" type="text/css" href="static/css/style.css">
+      
+  </head>
+
+<body class="grey lighten-5 {% raw %} {{contentClass}} {% endraw %}">
+  
+    <div ui-view></div>
+
+    <!--[if lt IE 9]>
+    <section class="browsehappy jumbotron hide">
+        <h1>Hello there!</h1>
+        <p>You are using an old browser which we unfortunately do not support.</p>
+        <p>Please <a href="http://browsehappy.com/">click here</a> to update your browser before using the website.</p>
+        <p><a href="http://browsehappy.com" class="btn btn-primary btn-lg" role="button">Yes, upgrade my browser!</a></p>
+    </section>
+    <![endif]-->
+
+    <script type="text/javascript" src="static/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="static/lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="static/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="static/lib/materialize/dist/js/materialize.min.js"></script>
+    <script type="text/javascript" src="http://cdn.pubnub.com/pubnub.min.js"></script>
+    <script type="text/javascript" src="static/lib//pubnub-angular/lib/pubnub-angular.js"></script>
+
+    <script type="text/javascript" src="static/application.js"></script>
+    <script type="text/javascript" src="static/config.js"></script>
+    <script type="text/javascript" src="static/modules/common/header.client.controller.js"></script>
+    <script type="text/javascript" src="static/modules/chat/chat.client.controller.js"></script>
+    <script type="text/javascript" src="static/modules/chat/chat.client.service.js"></script>
+    <script type="text/javascript" src="static/modules/users/login.client.controller.js"></script>
+    <script type="text/javascript" src="static/modules/users/register.client.controller.js"></script>
+    <script type="text/javascript" src="static/modules/users/security.client.service.js"></script>
+
+</body>
+</html>

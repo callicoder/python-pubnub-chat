@@ -1,0 +1,29 @@
+{
+  "name": "python-flask",
+  "version": "0.0.0",
+  "authors": [
+    "Rajeev Kumar Singh <callicoder@gmail.com>"
+  ],
+  "description": "Python flask app",
+  "keywords": [
+    "Python",
+    "Flask",
+    "Mongo"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.5",
+    "angular-ui-router": "~0.2.15",
+    "jquery": "~2.1.4",
+    "materialize": "~0.97.0",
+    "pubnub-angular": "~1.1.0"
+  }
+}
