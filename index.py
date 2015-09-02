@@ -10,7 +10,7 @@ import os
 app = Flask(__name__)
 
 # Mongo Connection
-client = MongoClient('localhost', 27017)
+client = MongoClient(os.environ['MONGOLAB_URI'])
 db = client.flaskDB
 
 
