@@ -10,6 +10,12 @@ angular.module('chatApp')
 	$scope.messages = [];
 	var theChannel = 'ChatApp';
 
+	$http.get('/messages')
+	.then(function(response){
+		console.log(response.data);
+		$scope.messages = response.data;
+	})
+
 	$scope.publish = function() {
   		PubNub.ngPublish({
     		channel: theChannel,
@@ -27,7 +33,7 @@ angular.module('chatApp')
     		// payload contains message, channel, env...
     		console.log('got a message event:', payload);
     		$timeout(function(){
-				$scope.messages.push(payload.message);
+				$scope.messages.push(payload);
     		}, 0);
     	});
 

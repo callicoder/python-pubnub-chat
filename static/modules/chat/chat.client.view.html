@@ -13,7 +13,7 @@
                   </div>
                   <ul id="chat" class="collection">
                       <li class="collection-item avatar" ng-repeat="message in messages track by $index">
-                         {{message}}
+                         {{message.message}}
                       </li>
                       <li class="collection-item">
                           <form name="chat-form" id="chat-form" ng-submit="publish()">

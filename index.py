@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, send_from_directory, url_for
+from flask import Flask, request, render_template, send_from_directory, url_for, jsonify
 import json
 from bson import json_util
 from bson.objectid import ObjectId
@@ -50,9 +50,12 @@ pubnub.subscribe(channels='ChatApp', callback=_callback, error=_error,
 def index():
 	return render_template('index.html')
 
-@app.route('/hello')
-def hello():
-	return 'Hello World!'			
+@app.route('/messages')
+def messages():
+	chatCollection = db.chats;
+	chatMessages = list(chatCollection.find({}))
+	return json_util.dumps(chatMessages)			
+
 
 # Serve Favicon
 @app.route('/favicon.ico')
