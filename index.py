@@ -16,7 +16,7 @@ db = client.get_default_database()
 
 
 # Pubnub config
-pubnub = Pubnub(publish_key="pub-c-5c8931d3-4638-4479-a216-2bb9aa6e7a18", subscribe_key="sub-c-461707f2-515c-11e5-81b5-02ee2ddab7fe")
+pubnub = Pubnub(publish_key="pub-c-5c8931d3-4638-4479-a216-2bb9aa6e7a18", subscribe_key="sub-c-461707f2-515c-11e5-81b5-02ee2ddab7fe", ssl_on=True)
 
 # Pubnub callbacks
 def _callback(message, channel):
