@@ -10,12 +10,14 @@ import os
 app = Flask(__name__)
 
 # Mongo Connection
-client = MongoClient(os.environ['MONGOLAB_URI'])
+client = MongoClient(os.environ.get('MONGOLAB_URI') or 'mongodb://localhost')
 db = client.flaskDB
 
 
+# Pubnub config
 pubnub = Pubnub(publish_key="pub-c-5c8931d3-4638-4479-a216-2bb9aa6e7a18", subscribe_key="sub-c-461707f2-515c-11e5-81b5-02ee2ddab7fe")
 
+# Pubnub callbacks
 def _callback(message, channel):
     print(message)
     chatCollection = db.chats
@@ -23,7 +25,6 @@ def _callback(message, channel):
     	"message": message,
     	"channel": channel
     })
-  
   
 def _error(message):
     print("ERROR : " + str(message))
@@ -46,9 +47,11 @@ def _disconnect(message):
 pubnub.subscribe(channels='ChatApp', callback=_callback, error=_error,
                  connect=_connect, reconnect=_reconnect, disconnect=_disconnect)
 
+
 @app.route('/')
 def index():
 	return render_template('index.html')
+
 
 @app.route('/messages')
 def messages():
@@ -62,9 +65,6 @@ def messages():
 def favicon():
 	return send_from_directory(os.path.join(app.root_path, 'static'), 'img/favicon.ico')
 
-
-login_manager = LoginManager()
-login_manager.init_app(app)
 
 if __name__ == '__main__':
 	app.run() 
