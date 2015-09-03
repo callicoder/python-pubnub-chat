@@ -5,6 +5,7 @@ from bson.objectid import ObjectId
 from pymongo import MongoClient
 from pubnub import Pubnub
 import os
+import datetime
 
 # Flask App
 app = Flask(__name__)
@@ -23,7 +24,8 @@ def _callback(message, channel):
     chatCollection = db.chats
     chatCollection.insert_one({
     	"message": message,
-    	"channel": channel
+    	"channel": channel,
+    	"createdAt": datetime.datetime.utcnow()
     })
   
 def _error(message):
@@ -56,7 +58,7 @@ def index():
 @app.route('/messages')
 def messages():
 	chatCollection = db.chats;
-	chatMessages = list(chatCollection.find({}))
+	chatMessages = list(chatCollection.find({}).sort("createdAt"))
 	return json_util.dumps(chatMessages)			
 
 
