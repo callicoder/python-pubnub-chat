@@ -3,8 +3,8 @@
 angular.module('chatApp')
 .controller('chatController', ['$scope', 'security', '$state', '$http', 'PubNub', '$rootScope', '$timeout', function($scope, security, $state, $http, PubNub, $rootScope, $timeout){
 	PubNub.init({
-  		publish_key:'pub-c-f60b2d34-f3ba-4374-a586-04811891c5f0',
-  		subscribe_key:'sub-c-48eeb7d0-51b2-11e5-81b5-02ee2ddab7fe',
+  		publish_key:'pub-c-5c8931d3-4638-4479-a216-2bb9aa6e7a18',
+  		subscribe_key:'sub-c-461707f2-515c-11e5-81b5-02ee2ddab7fe',
       	ssl : (('https:' == document.location.protocol) ? true : false)
 	});
 
