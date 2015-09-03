@@ -10,8 +10,8 @@ import os
 app = Flask(__name__)
 
 # Mongo Connection
-client = MongoClient(os.environ.get('MONGOLAB_URI') or 'mongodb://localhost')
-db = client.flaskDB
+client = MongoClient(os.environ.get('MONGOLAB_URI') or 'mongodb://localhost/flaskDB')
+db = client.get_default_database()
 
 
 # Pubnub config
