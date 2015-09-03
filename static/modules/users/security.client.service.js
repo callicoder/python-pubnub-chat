@@ -2,7 +2,7 @@
 angular.module('chatApp')
 .factory('security', ['$http', '$window', function($http, $window) {
 	var service = {
-		currentUser: $window.user,
+		currentUser: null,
 
 		login: function(user) {
 			return $http.post('/auth/signin', user)

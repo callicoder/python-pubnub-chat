@@ -152,6 +152,15 @@ body.login-content:before, body.register-content:before {
 	}
 }
 
+#chat {
+	height: 400px;
+	overflow-y: scroll; 
+}
+
+#chat .collection .collection-item {
+	min-height: 60px;
+}
+
 #chat-form {
 	position: relative;
 }
@@ -159,6 +168,7 @@ body.login-content:before, body.register-content:before {
 #chat-form .input-field {
 	margin-right: 50px;
 }
+
 
 #chat-form button {
 	width: 42px;

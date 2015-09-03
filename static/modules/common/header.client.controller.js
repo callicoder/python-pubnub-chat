@@ -1,7 +1,7 @@
 'use strict';
 angular.module('chatApp')
 .controller('headerController', ['$scope', 'security', function($scope, security){
-    $scope.user = "Rajeev";
+    
 
 }])
 .directive('profileToggle', function(){

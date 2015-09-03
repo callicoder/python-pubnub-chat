@@ -11,9 +11,11 @@
                     <span class="card-title grey-text text-darken-4">Chat with other users</span>
                   </div>
                   <ul id="chat" class="collection">
-                      <li class="collection-item avatar" ng-repeat="message in messages track by $index">
+                      <li class="collection-item" ng-repeat="message in messages track by $index">
                          {{message.message}}
                       </li>
+                  </ul>  
+                  <ul class="collection">
                       <li class="collection-item">
                           <form name="chat-form" id="chat-form" ng-submit="publish()">
                               <div class="input-field">
@@ -23,7 +25,7 @@
                               <button class="btn btn-floating" type="submit"><i class="mdi-content-send"></i></button>
                           </form>
                       </li>
-                  </ul>  
+                  </ul>
               </div>
           </div> 
       </div>

@@ -11,11 +11,22 @@ angular.module('chatApp')
 	$scope.messages = [];
 	var theChannel = 'ChatApp';
 
+
+	function updateScroll(){
+		$('#chat').animate({
+  			scrollTop: $('#chat').get(0).scrollHeight
+  		}, 100);
+	}
+
 	$http.get('/messages')
 	.then(function(response){
 		console.log(response.data);
 		$scope.messages = response.data;
+		$timeout(function(){
+			updateScroll();	
+		}, 0)
 	})
+
 
 	$scope.publish = function() {
   		PubNub.ngPublish({
@@ -35,6 +46,7 @@ angular.module('chatApp')
     		console.log('got a message event:', payload);
     		$timeout(function(){
 				$scope.messages.push(payload);
+				updateScroll()
     		}, 0);
     	});
 
